@@ -57,6 +57,24 @@ namespace shipapp
             dTTo.MaxDate = DateTime.Today;
             dTFrom.MaxDate = DateTime.Today;
 
+            SetRolePrivilages();
+
+            lblSearch.Text = "";
+            txtSearch.Enabled = false;
+        }
+
+        private void SetRolePrivilages()
+        {
+            pcBxAddToDaily.BackgroundImage = Properties.Resources.File;
+            pcBxAddToDaily.Image = Properties.Resources.arrow_left_c;
+            pcBxPrint.BackgroundImage = Properties.Resources.Printer;
+            pcBxRefreash.BackgroundImage = Properties.Resources.Refresh;
+            // Disable search until a column is selected
+            if (lblSearch.Text.Length == 0)
+            {
+                txtSearch.Enabled = false;
+            }
+
             if (role == 1)
             {
                 pcBxAddToDaily.Enabled = true;
@@ -77,8 +95,6 @@ namespace shipapp
                 pcBxAddToDaily.Enabled = false;
                 pcBxAddToDaily.Hide();
             }
-            lblSearch.Text = "";
-            txtSearch.Enabled = false;
         }
         /// <summary>
         /// Alert user if an atempt to logout occurs

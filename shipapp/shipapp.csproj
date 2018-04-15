@@ -276,6 +276,7 @@
     <Content Include="Connections\Backup\DoNotModify.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\58.png" />
     <None Include="Resources\box_PNG20.png" />
     <None Include="Resources\Edit file.png" />
     <None Include="Resources\Edit.png" />

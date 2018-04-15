@@ -49,9 +49,20 @@ namespace shipapp
         {
             // Set form
             this.CenterToParent();
-            SetRole();
-            GetPackages();
             lblSearch.Text = "";
+            pictureBox6.BackgroundImage = Properties.Resources.Arrow_Left;
+            pictureBox8.BackgroundImage = Properties.Resources.User;
+            SetRole();
+            SetRolePrivilages();
+            GetPackages();
+        }
+        private void SetRolePrivilages()
+        {
+            btnAdd.BackgroundImage = Properties.Resources.Add;
+            pcBxEdit.BackgroundImage = Properties.Resources.Edit;
+            pictureBox3.BackgroundImage = Properties.Resources.Delete;
+            pcBxPrint.BackgroundImage = Properties.Resources.Printer;
+            pcBXRefreash.BackgroundImage = Properties.Resources.Refresh;
             // Disable search until a column is selected
             if (lblSearch.Text.Length == 0)
             {
@@ -83,13 +94,24 @@ namespace shipapp
             else if (role == 3)
             {
                 btnAdd.Enabled = false;
-                btnAdd.Hide();
+                btnAdd.Show();
                 pcBxEdit.Enabled = false;
-                pcBxEdit.Hide();
+                pcBxEdit.Show();
                 pictureBox3.Enabled = false;
-                pictureBox3.Hide();
+                pictureBox3.BackgroundImage = Properties.Resources.NoAccess;
                 pcBxPrint.Enabled = false;
-                pcBxPrint.Hide();
+                pcBxPrint.Show();
+            }
+            else if (role == 4)
+            {
+                btnAdd.Enabled = false;
+                btnAdd.BackgroundImage = Properties.Resources.NoAccess;
+                pcBxEdit.Enabled = false;
+                pcBxEdit.BackgroundImage = Properties.Resources.NoAccess;
+                pictureBox3.Enabled = false;
+                pictureBox3.BackgroundImage = Properties.Resources.NoAccess;
+                pcBxPrint.Enabled = false;
+                pcBxPrint.BackgroundImage = Properties.Resources.NoAccess;
             }
         }
         /// <summary>
