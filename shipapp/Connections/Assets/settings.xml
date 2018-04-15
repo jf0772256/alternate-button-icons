@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <default_connections>
+    <database_type type="master"></database_type>
+    <connection_string type="MSSQL"></connection_string>
+    <connection_string type="MySQL"></connection_string>
+  </default_connections>
+  <strings>
+    <string></string>
+  </strings>
+</settings>
+<!--
+<host>192.168.1.9</host>
+<database_name>CsharpTest</database_name>
+<user_name>CsharpTest</user_name>
+<password>shelby67</password>
+<port>0</port>
+-->

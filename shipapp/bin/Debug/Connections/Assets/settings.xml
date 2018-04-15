@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<settings>
+  <default_connections>
+    <database_type type="master">AAEAAAD/////AQAAAAAAAAAGAQAAAAVNU1NRTAs=</database_type>
+    <connection_string type="MSSQL">AAEAAAD/////AQAAAAAAAAAGAQAAAIcBRHJpdmVyPXtTUUwgU2VydmVyfTtTZXJ2ZXI9c3R1c3FsLmNrd2lhOHFrZ3l5ai51cy1lYXN0LTEucmRzLmFtYXpvbmF3cy5jb207RGF0YWJhc2U9b3Rjc2hpcHBpbmc7VWlkPW90Y3NoaXBwaW5nYWRtaW47UHdkPWNpczI2MFNQMThTaGlwCw==</connection_string>
+    <connection_string type="MySQL"></connection_string>
+  </default_connections>
+  <strings>
+    <string>AAEAAAD/////AQAAAAAAAAAGAQAAAG9ramFzaGRmb3kzcW9laWZ1aHpza2JkY2l1YXl0ZW9maXV5YXNsamtkaGZsa2phd2hsa2RmeWFzODcyZmpnYXNoZGpmYnFtd2hsYWtzaGRsdHlhb3d0eWRyZmxrZ3NhZGZramdhd2VoZnJrbGF3eWQL</string>
+  </strings>
+</settings>
+<!--
+<host>192.168.1.9</host>
+<database_name>CsharpTest</database_name>
+<user_name>CsharpTest</user_name>
+<password>shelby67</password>
+<port>0</port>
+-->
