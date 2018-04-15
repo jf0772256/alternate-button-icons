@@ -142,13 +142,17 @@ namespace shipapp
             {
                 this.role = 1;
             }
-            else if (DataConnectionClass.AuthenticatedUser.Level.Role_Title == "Supervisor")
+            else if (DataConnectionClass.AuthenticatedUser.Level.Role_Title == "Dock Supervisor")
             {
                 role = 2;
             }
-            else if (DataConnectionClass.AuthenticatedUser.Level.Role_Title == "User")
+            else if (DataConnectionClass.AuthenticatedUser.Level.Role_Title == "Supervisor")
             {
                 role = 3;
+            }
+            else if (DataConnectionClass.AuthenticatedUser.Level.Role_Title == "User")
+            {
+                role = 4;
             }
             else
             {
