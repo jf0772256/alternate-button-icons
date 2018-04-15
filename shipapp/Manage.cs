@@ -136,94 +136,7 @@ namespace shipapp
         {
             this.CenterToParent();
             SetRole();
-
-            //
-            if (role == 1)
-            {
-                // Do nothing
-                pcBxDelete.Enabled = true;
-                pcBxEdit.Enabled = true;
-                pictureBox1.Enabled = true;
-                pcBxPrint.Enabled = true;
-
-                pcBxDelete.BackColor = Color.Transparent;
-                pcBxEdit.BackColor = Color.Transparent;
-                pictureBox1.BackColor = Color.Transparent;
-                pcBxPrint.Show();
-
-                btnVendors.Enabled = true;
-                btnFaculty.Show();
-                btnFaculty.Enabled = true;
-                btnBuildings.Show();
-                btnBuildings.Enabled = true;
-                btnCarriers.Show();
-                btnCarriers.Enabled = true;
-                btnOther.Enabled = true;
-                btnOther.Show();
-            }
-            else if (role == 2)
-            {
-                // Do nothing
-                pcBxDelete.Enabled = false;
-                pcBxDelete.Hide();
-                pcBxEdit.Enabled = true;
-                pictureBox1.Enabled = true;
-                pcBxPrint.Enabled = true;
-
-                pcBxDelete.BackColor = Color.Transparent;
-                pcBxEdit.BackColor = Color.Transparent;
-                pictureBox1.BackColor = Color.Transparent;
-                pcBxPrint.Show();
-
-                btnVendors.Enabled = true;
-                btnFaculty.Show();
-                btnFaculty.Enabled = true;
-                btnBuildings.Show();
-                btnBuildings.Enabled = true;
-                btnCarriers.Show();
-                btnCarriers.Enabled = true;
-                btnOther.Enabled = true;
-                btnOther.Show();
-            }
-            else if (role == 3)
-            {
-
-                pcBxDelete.Enabled = false;
-                pcBxEdit.Enabled = false;
-                pictureBox1.Enabled = false;
-                pcBxPrint.Enabled = false;
-
-                pcBxDelete.BackColor = Color.LightPink;
-                pcBxEdit.BackColor = Color.LightPink;
-                pictureBox1.BackColor = Color.LightPink;
-                pcBxPrint.Hide();
-
-                btnVendors.Enabled = true;
-                btnFaculty.Show();
-                btnFaculty.Enabled = true;
-                btnBuildings.Show();
-                btnBuildings.Enabled = true;
-                btnCarriers.Show();
-                btnCarriers.Enabled = true;
-                btnOther.Enabled = true;
-                btnOther.Show();
-                // TODO: Restrict view of password
-            }
-            else if ( role == 0)
-            {
-                btnUsers.Enabled = true;
-                btnUsers.BackColor = Color.White;
-                btnVendors.Hide();
-                btnVendors.Enabled = false;
-                btnFaculty.Hide();
-                btnFaculty.Enabled = false;
-                btnBuildings.Hide();
-                btnBuildings.Enabled = false;
-                btnCarriers.Hide();
-                btnCarriers.Enabled = false;
-                btnOther.Enabled = false;
-                btnOther.Hide();
-            }
+            SetRolePrivs();
             btnUsers_Click_1(this, e);
         }
         #region Table Buttons
@@ -238,12 +151,13 @@ namespace shipapp
             btnFaculty.BackColor = SystemColors.ButtonHighlight;
             currentTable = 3;
             DataConnectionClass.EmployeeConn.GetAllAfaculty(this);
+            SetRolePrivs();
 
-            if (role == 2)
-            {
-                pictureBox1.Enabled = true;
-                pictureBox1.Show();
-            }
+            //if (role == 2)
+            //{
+            //    pictureBox1.Enabled = true;
+            //    pictureBox1.Show();
+            //}
         }
         #endregion // When the user clicks one of these button they will assign the active table and fiil the grid with data.
         #region Grid Buttons
@@ -275,12 +189,13 @@ namespace shipapp
             dataGridView1.DataSource = null;
             dataGridView1.Columns.Clear();
             DataConnectionClass.UserConn.GetManyUsers(this);
+            SetRolePrivs();
 
-            if (role == 2)
-            {
-                pictureBox1.Enabled = false;
-                pictureBox1.Hide();
-            }
+            //if (role == 2)
+            //{
+            //    pictureBox1.Enabled = false;
+            //    pictureBox1.Hide();
+            //}
 
             //change header text for roles
             try
@@ -316,30 +231,30 @@ namespace shipapp
             dataGridView1.DataSource = null;
             dataGridView1.Columns.Clear();
             DataConnectionClass.VendorConn.GetVendorList(this);
+            SetRolePrivs();
 
-            if (role == 2)
-            {
-                pictureBox1.Enabled = true;
-                pictureBox1.Show();
-            }
+            //if (role == 2)
+            //{
+            //    pictureBox1.Enabled = true;
+            //    pictureBox1.Show();
+            //}
         }
-
-
+        
         private void btnBuildings_Click_1(object sender, EventArgs e)
         {
             ClearBackColor();
             btnBuildings.BackColor = SystemColors.ButtonHighlight;
             currentTable = 4;
             DataConnectionClass.buildingConn.GetBuildingList(this);
+            SetRolePrivs();
 
-            if (role == 2)
-            {
-                pictureBox1.Enabled = true;
-                pictureBox1.Show();
-            }
+            //if (role == 2)
+            //{
+            //    pictureBox1.Enabled = true;
+            //    pictureBox1.Show();
+            //}
         }
-
-
+        
         private void btnCarriers_Click_1(object sender, EventArgs e)
         {
             ClearBackColor();
@@ -349,20 +264,27 @@ namespace shipapp
             dataGridView1.DataSource = null;
             dataGridView1.Columns.Clear();
             DataConnectionClass.CarrierConn.GetCarrierList(this);
+            SetRolePrivs();
 
-            if (role == 2)
-            {
-                pictureBox1.Enabled = true;
-                pictureBox1.Show();
-            }
+            //if (role == 2)
+            //{
+            //    pictureBox1.Enabled = true;
+            //    pictureBox1.Show();
+            //}
         }
-
-
+        
         private void btnOther_Click_1(object sender, EventArgs e)
         {
             ClearBackColor();
             btnOther.BackColor = SystemColors.ButtonHighlight;
             currentTable = 6;
+            SetRolePrivs();
+            pcBxDelete.BackColor = Color.LightPink;
+            pcBxEdit.BackColor = Color.LightPink;
+            pictureBox1.BackColor = Color.LightPink;
+            pcBxDelete.BackgroundImage = Properties.Resources.NoAccess;
+            pictureBox1.BackgroundImage = Properties.Resources.NoAccess;
+            pcBxEdit.BackgroundImage = Properties.Resources.NoAccess;
         }
 
 
@@ -803,6 +725,115 @@ namespace shipapp
             btnCarriers.BackColor = SystemColors.ButtonFace;
             btnBuildings.BackColor = SystemColors.ButtonFace;
             btnOther.BackColor = SystemColors.ButtonFace;
+        }
+        private void SetRolePrivs()
+        {
+            //images setup
+            pictureBox1.BackgroundImage = Properties.Resources.Add;
+            pictureBox7.BackgroundImage = Properties.Resources.Arrow_Left;
+            pictureBox8.BackgroundImage = Properties.Resources.User;
+            pcBxEdit.BackgroundImage = Properties.Resources.Edit;
+            pcBxDelete.BackgroundImage = Properties.Resources.Delete;
+            pcBxPrint.BackgroundImage = Properties.Resources.Printer;
+            //
+            if (role == 1)
+            {
+                // Do nothing
+                pcBxDelete.Enabled = true;
+                pcBxEdit.Enabled = true;
+                pictureBox1.Enabled = true;
+                pcBxPrint.Enabled = true;
+
+                pcBxDelete.BackColor = Color.Transparent;
+                pcBxEdit.BackColor = Color.Transparent;
+                pictureBox1.BackColor = Color.Transparent;
+                pcBxPrint.Show();
+
+                btnVendors.Enabled = true;
+                btnFaculty.Show();
+                btnFaculty.Enabled = true;
+                btnBuildings.Show();
+                btnBuildings.Enabled = true;
+                btnCarriers.Show();
+                btnCarriers.Enabled = true;
+                btnOther.Enabled = true;
+                btnOther.Show();
+            }
+            else if (role == 2)
+            {
+                // Do nothing
+                pcBxDelete.Enabled = false;
+                pcBxDelete.BackgroundImage = Properties.Resources.NoAccess;
+                pcBxEdit.Enabled = true;
+                pictureBox1.Enabled = true;
+                pcBxPrint.Enabled = true;
+
+                pcBxDelete.BackColor = Color.LightPink;
+                pcBxEdit.BackColor = Color.Transparent;
+                pictureBox1.BackColor = Color.Transparent;
+                pcBxPrint.Show();
+
+                btnVendors.Enabled = true;
+                btnFaculty.Show();
+                btnFaculty.Enabled = true;
+                btnBuildings.Show();
+                btnBuildings.Enabled = true;
+                btnCarriers.Show();
+                btnCarriers.Enabled = true;
+                btnOther.Enabled = true;
+                btnOther.Show();
+            }
+            else if (role == 3)
+            {
+
+                pcBxDelete.Enabled = false;
+                pcBxEdit.Enabled = false;
+                pictureBox1.Enabled = false;
+                pcBxPrint.Enabled = false;
+
+                pcBxDelete.BackColor = Color.LightPink;
+                pcBxEdit.BackColor = Color.LightPink;
+                pictureBox1.BackColor = Color.LightPink;
+                pcBxPrint.BackgroundImage = Properties.Resources.NoAccess;
+                pictureBox1.BackgroundImage = Properties.Resources.NoAccess;
+                pcBxEdit.BackgroundImage = Properties.Resources.NoAccess;
+
+                btnVendors.Enabled = true;
+                btnFaculty.Show();
+                btnFaculty.Enabled = true;
+                btnBuildings.Show();
+                btnBuildings.Enabled = true;
+                btnCarriers.Show();
+                btnCarriers.Enabled = true;
+                btnOther.Enabled = true;
+                btnOther.Show();
+                // TODO: Restrict view of password
+            }
+            else if (role == 0)
+            {
+                btnUsers.Enabled = true;
+                btnUsers.BackColor = Color.White;
+                btnVendors.BackgroundImage = Properties.Resources.NoAccess;
+                btnVendors.BackColor = Color.LightPink;
+                btnVendors.Text = "";
+                btnVendors.Enabled = false;
+                btnFaculty.BackgroundImage = Properties.Resources.NoAccess;
+                btnFaculty.BackColor = Color.LightPink;
+                btnFaculty.Text = "";
+                btnFaculty.Enabled = false;
+                btnBuildings.BackgroundImage = Properties.Resources.NoAccess;
+                btnBuildings.BackColor = Color.LightPink;
+                btnBuildings.Text = "";
+                btnBuildings.Enabled = false;
+                btnCarriers.BackgroundImage = Properties.Resources.NoAccess;
+                btnCarriers.Text = "";
+                btnCarriers.BackColor = Color.LightPink;
+                btnCarriers.Enabled = false;
+                btnOther.Enabled = false;
+                btnOther.BackColor = Color.LightPink;
+                btnOther.Text = "";
+                btnOther.BackgroundImage = Properties.Resources.NoAccess;
+            }
         }
     }
 }

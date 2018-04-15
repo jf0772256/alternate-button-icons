@@ -154,6 +154,7 @@ namespace shipapp
                 btnDailyReceiving.BackgroundImage = Properties.Resources.Receive;
                 btnReports.BackgroundImage = Properties.Resources.NoAccess;
             }
+            pictureBox1.BackgroundImage = Properties.Resources.User;
         }
 
 
