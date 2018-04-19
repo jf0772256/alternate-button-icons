@@ -52,10 +52,10 @@ namespace shipapp
             //MessageBox.Show(DataConnectionClass.AuthenticatedUser.Level.Role_Title);
             SetRole();
             //only back up data if admin or super admin user.
-            if (role == 1 || role == 0)
-            {
-                DataConnectionClass.Backup_DB.CheckToDoBackup();
-            }
+            //if (role == 1 || role == 0)
+            //{
+            //    DataConnectionClass.Backup_DB.CheckToDoBackup();
+            //}
         }
 
 

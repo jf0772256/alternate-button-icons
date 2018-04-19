@@ -298,7 +298,7 @@ namespace shipapp
             {
                 // Delete selected user
                 User userToBeDeleted = DataConnectionClass.DataLists.UsersList.FirstOrDefault(uid => uid.Id == Convert.ToInt64(dataGridView1.SelectedRows[0].Cells[0].Value));
-                DataConnectionClass.UserConn.DeleteUser(userToBeDeleted); 
+                //DataConnectionClass.UserConn.DeleteUser(userToBeDeleted); 
             }
             else if (currentTable == 2)
             {
@@ -310,19 +310,19 @@ namespace shipapp
             {
                 // Delete selected faculty
                 Faculty facultyToBeDeleted = DataConnectionClass.DataLists.FacultyList.FirstOrDefault(fid => fid.Id == Convert.ToInt64(dataGridView1.SelectedRows[0].Cells[0].Value));
-                DataConnectionClass.EmployeeConn.DeleteFaculty(facultyToBeDeleted);
+                //DataConnectionClass.EmployeeConn.DeleteFaculty(facultyToBeDeleted);
             }
             else if (currentTable == 4)
             {
                 // Delete selected building
                 BuildingClass buildingToBeDeleted = DataConnectionClass.DataLists.BuildingNames.FirstOrDefault(bid => bid.BuildingId == Convert.ToInt64(dataGridView1.SelectedRows[0].Cells[0].Value));
-                DataConnectionClass.buildingConn.RemoveBuilding(buildingToBeDeleted);
+                //DataConnectionClass.buildingConn.RemoveBuilding(buildingToBeDeleted);
             }
             else if (currentTable == 5)
             {
                 // Delete selected carrier
                 Carrier carrierToBeDeleted = DataConnectionClass.DataLists.CarriersList.FirstOrDefault(cid => cid.CarrierId == Convert.ToInt64(dataGridView1.SelectedRows[0].Cells[0].Value));
-                DataConnectionClass.CarrierConn.DeleteCarrier(carrierToBeDeleted);
+                //DataConnectionClass.CarrierConn.DeleteCarrier(carrierToBeDeleted);
             }
             else if (currentTable == 6)
             {

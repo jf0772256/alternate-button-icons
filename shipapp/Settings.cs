@@ -65,7 +65,7 @@ namespace shipapp
         private void button2_Click(object sender, EventArgs e)
         {
             Connections.HelperClasses.SQLHelperClass.DatabaseType type = (DatabaseType == Connections.HelperClasses.SQLHelperClass.DatabaseType.Unset) ? Connections.DataConnections.DataConnectionClass.DBType : DatabaseType;
-            Connections.DataConnections.DataConnectionClass.Backup_DB.DoBackup(type);
+            //Connections.DataConnections.DataConnectionClass.Backup_DB.DoBackup(type);
         }
 
         private void comboBox2_SelectionChangeCommitted(object sender, EventArgs e)
@@ -93,7 +93,7 @@ namespace shipapp
             if (dr == DialogResult.OK)
             {
                 string fin = OpenSQLFile.FileName;
-                Connections.DataConnections.DataConnectionClass.Backup_DB.RestoreDBBackup(fin);
+                //Connections.DataConnections.DataConnectionClass.Backup_DB.RestoreDBBackup(fin);
             }
         }
     }
